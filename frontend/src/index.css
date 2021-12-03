@@ -12,6 +12,8 @@
   --vite-light-grey: #ccd0d4;
   --table-buy: rgba(63, 252, 63, 0.267);
   --table-sell: rgba(255, 132, 132, 0.266);
+  --lrg-font: 2rem;
+  --md-font: 1.5rem;
 }
 
 body {
@@ -45,6 +47,13 @@ a{
   margin-top: 9vh;
 }
 
+.active{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
 /* HEADER */
 nav{
   padding: 1rem 2rem;
@@ -245,12 +254,21 @@ nav{
   border-radius: none!important;
 }
 
-#explore-table{
+.table-container{
+  margin: 2rem 0;
+}
+
+.results-header{
+  text-align: center;
+  font-size: var(--md-font);
+}
+
+#explore-table, #news-table{
   border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
   text-align: center;
-  margin: 2rem 0;
+  margin: 1rem 0
 }
 
 .etable-header{

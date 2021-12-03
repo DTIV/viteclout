@@ -45,3 +45,41 @@ export var transactions = [
         "type": "sell"
     },
 ]
+
+export var news_transactions = [
+    {
+        "_id": "2323",
+        "price": "0.103",
+        "quantity": "34",
+        "type": "buy",
+        "address" : "vite_9-cn895739574n8v759835749574395"
+    },
+    {
+        "_id": "25757",
+        "price": "0.123",
+        "quantity": "100",
+        "type": "sell",
+        "address" : "vite_9-cn895739574n8v759835749574395"
+    },
+    {
+        "_id": "87568",
+        "price": "0.145",
+        "quantity": "413",
+        "type": "buy",
+        "address" : "vite_9-cn895739574n8v759835749574395"
+    },
+    {
+        "_id": "35534",
+        "price": "0.165",
+        "quantity": "143550",
+        "type": "sell",
+        "address" : "vite_9-cn895739574n8v759835749574395"
+    },
+    {
+        "_id": "43423",
+        "price": "0.126",
+        "quantity": "3556",
+        "type": "buy",
+        "address" : "vite_9-cn895739574n8v759835749574395"
+    },
+]

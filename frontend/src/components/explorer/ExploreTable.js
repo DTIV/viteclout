@@ -1,9 +1,11 @@
 import React from 'react'
 import TradeResults from './TradeResults'
 
-const ExploreTable = () => {
+const ExploreTable = (props) => {
+    var results = props.vuilder
     return (
-        <div id="table-container">
+        <div className={`${results ? 'table-container active' : 'hide'}`}>
+            <div className="results-header">Results for: {results}</div>
             <table id="explore-table">
                 <tbody>
                     <tr className="etable-header">

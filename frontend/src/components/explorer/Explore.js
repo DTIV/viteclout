@@ -1,12 +1,13 @@
 import React from 'react'
 import Search from './Search'
-import ExploreTable from './ExploreTable'
+
+import NewsTable from './NewsTable'
 
 const Explore = () => {
     return (
         <div id="explore" className="l-border">
             <Search />
-            <ExploreTable />
+            <NewsTable />
         </div>
     )
 }
