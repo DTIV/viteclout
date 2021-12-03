@@ -2,7 +2,7 @@ import React from 'react'
 
 const VuilderProfile = () => {
     return (
-        <div>
+        <div id="profile">
             PROFILE
         </div>
     )

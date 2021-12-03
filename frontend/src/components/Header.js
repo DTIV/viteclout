@@ -7,7 +7,7 @@ const Header = () => {
                 <div className="nav-wrap">
                     <Link to="/" className="logo"><span className="vite-txt">vite</span>Clout</Link>
                     <div className="menu">
-                        <a href="/explore/">Explore</a>
+                        <Link to="/explore">Explore</Link>
                     </div>
                     <div className="nav-btn-wrap">
                         <a className="nav-btn" href="#">Login</a>
