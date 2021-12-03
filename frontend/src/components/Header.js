@@ -11,7 +11,10 @@ const Header = () => {
                     </div>
                     <div className="nav-btn-wrap">
                         <a className="nav-btn" href="#">Login</a>
-                        <a className="nav-btn" href="#">ViteConnect</a>
+                        <a className="nav-btn vc-nav-btn" href="#">ViteConnect</a>
+                        <a href="#">
+                            <img className="nav-profile" src="images/empty-profile.png" alt="" />
+                        </a>
                     </div>
                 </div>
             </nav>

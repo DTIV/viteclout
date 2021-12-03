@@ -27,7 +27,7 @@ const Showcase = () => {
                 <div className="vs-header">Vuilder's Showcase</div>
                 <div className="vs-header">Top Tweets</div>
             </div>
-            <div className="show-content">
+            <div className="show-content l-border">
                 <div>
                     <div className="vuilders-showcase">
                         {vuilders.map(vuilder => (
