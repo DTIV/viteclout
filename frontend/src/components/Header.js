@@ -1,11 +1,11 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const Header = () => {
     return (
         <header>
             <nav>
                 <div className="nav-wrap">
-                    <div className="logo">viteClout</div>
+                    <Link to="/" className="logo"><span className="vite-txt">vite</span>Clout</Link>
                     <div className="menu">
                         <a href="/explore/">Explore</a>
                     </div>

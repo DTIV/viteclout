@@ -14,12 +14,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <main>
           <Routes>
             <Route exact path="/" element={<Showcase />} />
             <Route exact path="/vuilder/:id" element={<VuilderProfile />} />
           </Routes>
-        </main>
         <Footer />
       </div>
       
