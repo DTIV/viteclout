@@ -45,7 +45,7 @@ a{
   transition: all 0.5s;
 }
 
-#showcase, #profile, #explore{
+#showcase, #profile, #explore, #edit-vuilders{
   margin-top: 9vh;
 }
 
@@ -126,6 +126,11 @@ nav{
 
 .vite-txt{
   color: var(--vite-blue);
+}
+
+.sm-ta{
+  width: 80%;
+  margin: auto;
 }
 /* HEADER END */
 
@@ -428,7 +433,31 @@ td.sell{
   background-color: var(--table-sell);
 }
 
+/* EDIT  */
 
+.edit-header{
+  text-align: center;
+}
+.file-wrap{
+  text-align: center;
+}
+
+.edit-pic-wrap{
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.header-input-wrap{
+  text-align: center;
+}
+.header-input{
+  padding: 0.5rem;
+  text-align: center;
+  width: 60%;
+}
 /* FOOTER */
 
 .copyright{

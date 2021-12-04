@@ -47,11 +47,11 @@ const VuilderProfile = (props) => {
                             <div className="blog-top">
                                 <div className="l-txt">{vuilder.name}</div>
                                 <div className="edit-wrap">
-                                    <a href="" className="edit-btn">
+                                    <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
                                         <div >
                                             Edit
                                         </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="line"></div>
@@ -67,9 +67,6 @@ const VuilderProfile = (props) => {
                 
             </div>
             <section className="profile-bottom">
-                <div>
-                    Bonding Curve
-                </div>
                 <div className="top-stats">
                     <div>
                         <div className="m-txt">

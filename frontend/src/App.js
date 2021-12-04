@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Showcase from "./components/home/Showcase";
 import VuilderProfile from "./components/vuilder/VuilderProfile"
 import Explore from "./components/explorer/Explore";
+import EditVuilder from "./components/vuilder/EditVuilder"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/" element={<Showcase />} />
             <Route exact path="/vuilder/:id" element={<VuilderProfile />} />
             <Route exact path="/explore" element={<Explore />} />
+            <Route exact path="/vuilder/:id/edit" element={<EditVuilder />} />
           </Routes>
         <Footer />
       </div>
