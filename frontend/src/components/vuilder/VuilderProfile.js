@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaGithubSquare } from 'react-icons/fa';
 import BondCurve from './BondCurve';
 import VuilderTweets from './VuilderTweets'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip} from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip, ResponsiveContainer} from 'recharts';
 import { useState } from 'react';
 
 const VuilderProfile = (props) => {
@@ -30,15 +30,7 @@ const VuilderProfile = (props) => {
             data.push(point)
         }
     }
-    console.log(data)
     createCurve()
-    window.addEventListener("resize", function(event) {
-        var curve_wrap = this.document.getElementsByClassName("bonding-curve")
-        setWidth(curve_wrap[0].clientWidth) 
-        // console.log(curve_wrap.clientHeight, curve_wrap.clientWidth)
-        // console.log(document.getElementsByClassName("bonding-curve").clientWidth + ' wide by ' + document.body.clientHeight+' high');
-    })
-    
     const CustomizedDot = (props) => {
         const { cx, cy, stroke, payload, value } = props;
         // console.log(value)
@@ -101,20 +93,22 @@ const VuilderProfile = (props) => {
             </div>
             <section className="profile-bottom">
                 <div className="bonding-curve">
-                    <LineChart 
-                        className = "line-chart"
-                        width={width} 
-                        height={420} 
-                        data={data}
-                        margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
-                        <Line type="monotone" dataKey="price" stroke="#8884d8" dot={<CustomizedDot />}/>
-                        <CartesianGrid stroke="#ccc" />
-                        <XAxis dataKey="name">
-                            <Label className="chart-labal" value="VLT Sold" offset={0} position="insideBottom" />
-                        </XAxis>
-                        <YAxis label={{ value: 'price (VITE)', angle: -90, position: 'insideLeft' }}/>
-                        <Tooltip />
-                    </LineChart>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <LineChart 
+                            className = "line-chart"
+                            width={width} 
+                            height={420} 
+                            data={data}
+                            margin={{ top: 15, right: 30, left: 20, bottom: 5 }}>
+                            <Line type="monotone" dataKey="price" stroke="#8884d8" dot={<CustomizedDot />}/>
+                            <CartesianGrid stroke="#ccc" />
+                            <XAxis dataKey="name">
+                                <Label className="chart-labal" value="VLT Sold" offset={0} position="insideBottom" />
+                            </XAxis>
+                            <YAxis label={{ value: 'price (VITE)', angle: -90, position: 'insideLeft' }}/>
+                            <Tooltip />
+                        </LineChart>
+                    </ResponsiveContainer>
                 </div>
                 
             </section>
