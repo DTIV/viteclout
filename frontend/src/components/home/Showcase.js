@@ -35,7 +35,6 @@ const Showcase = () => {
                     </div>
                 </div>
                 <div>
-                    
                     <div className="tweet-wrap">
                         {tweets.map(tweet => (
                             <div key={tweet._id} className="tweet">

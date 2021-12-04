@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import profile from '../components/empty-profile.png'
 const Header = () => {
     return (
         <header>
@@ -13,7 +14,7 @@ const Header = () => {
                         <a className="nav-btn" href="#">Login</a>
                         <a className="nav-btn vc-nav-btn" href="#">ViteConnect</a>
                         <a href="#">
-                            <img className="nav-profile" src="images/empty-profile.png" alt="" />
+                            <img className="nav-profile" src={profile} alt="" />
                         </a>
                     </div>
                 </div>
