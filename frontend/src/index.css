@@ -16,6 +16,7 @@
   --md-font: 1.5rem;
 }
 
+html, body { margin: 0; padding: 0; }
 body {
   font-family: 'Raleway', sans-serif;
 }
@@ -53,6 +54,14 @@ a{
 
 .hide{
   display: none;
+}
+
+.l-txt{
+  font-size: var(--lrg-font);
+}
+
+.m-txt{
+  font-size: var(--md-font);
 }
 /* HEADER */
 nav{
@@ -172,7 +181,7 @@ nav{
   text-align: center;
   padding: 1rem;
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
   word-wrap: break-word;
   overflow: hidden;
   border-radius: 5px;
@@ -222,8 +231,115 @@ nav{
 /* SHOWCASE END */
 
 /* VUILDER PROFILE */
-#profile{
-  margin-top: 100px;
+.git-tab{
+  font-size: 2.5rem;
+  color: var(--vite-blue);
+}
+
+.line{
+  height: 4px;
+  background-color: var(--vite-blue);
+}
+
+.blog-head, .blog-body{
+  margin: 2rem 0;
+}
+.blog-top{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.profile-card{
+  /* border: black solid 1px; */
+  padding: 10px;
+
+  background-color: var(--vite-light-blue);
+  box-shadow: 5px 10px 18px #a5a5a5;
+  text-align: center;
+  padding: 1rem;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.profile-wrap{
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  grid-gap: 4rem;
+}
+
+.edit-wrap{
+  display: grid;
+  justify-content: right;
+}
+.edit-btn{
+  display: flex;
+  height: 37px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  background-color: var(--vite-blue);
+  border-left: var(--vite-blue) 2px solid;
+  border-right: var(--vite-blue) 2px solid;
+  border-top: var(--vite-blue) 2px solid;
+  transition: all 0.5s;
+}
+
+.edit-btn:hover{
+  color: var(--vite-blue);
+  background-color: white;
+}
+
+.profile-blog{
+  width: 80%;
+}
+.mint-wrap{
+  margin: 2rem 0;
+}
+
+#mint{
+  display: grid;
+  grid-gap: 0.5rem;
+  
+}
+
+#mint-sub{
+  background-color: var(--vite-blue);
+  border: var(--vite-blue) 2px solid;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.5s;
+}
+
+#mint-sub:hover{
+  background-color: white;
+  border: var(--vite-blue) 2px solid;
+  color: var(--vite-blue);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#mint-val, #mint-sub{
+  width: 100%;
+  padding: 0.5rem;
+}
+
+#vuilder-socials{
+  margin-top: 1rem;
+}
+
+.profile-bottom{
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  border: black solid 1px;
+  grid-gap: 2rem;
+  height:  50vh;
+}
+
+.bonding-curve{
+  border: black solid 1px;
 }
 /* VUILER PROFILE END */
 

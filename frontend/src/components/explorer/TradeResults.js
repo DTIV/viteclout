@@ -1,5 +1,5 @@
 import React from 'react'
-import { transactions } from '../api/transac';
+import { transactions } from '../database/transac';
 
 const TradeResults = () => {
     return transactions.filter((item, index) => index < 6).map((market) => (

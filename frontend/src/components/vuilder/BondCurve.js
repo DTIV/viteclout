@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Curve = () => {
+const BondCurve = () => {
     return (
         <div>
-            CURVE
+            BondCURVE
         </div>
     )
 }
 
-export default Curve
+export default BondCurve
