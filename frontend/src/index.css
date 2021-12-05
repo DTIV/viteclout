@@ -12,6 +12,10 @@
   --vite-light-grey: #ccd0d4;
   --table-buy: rgba(63, 252, 63, 0.267);
   --table-sell: rgba(255, 132, 132, 0.266);
+  --buy-color: green;
+  --buy-hover: rgb(0, 182, 0);
+  --sell-color:rgb(184, 0, 0);
+  --sell-hover: rgb(255, 0, 0);
   --lrg-font: 2rem;
   --md-font: 1.5rem;
   --sm-font: 1.3rem
@@ -54,6 +58,16 @@ a{
   margin: 1rem 0;
 }
 
+.transact-btn{
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
 .sec-btn:hover{
   background-color:inherit;
   color: var(--vite-blue);
@@ -89,14 +103,14 @@ a{
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
 }
 
 .banner{
   padding: 2rem 0;
   background-color: var(--vite-blue);
   color: white;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 
@@ -345,10 +359,37 @@ nav{
 .profile-blog{
   width: 80%;
 }
-.mint-wrap{
+
+
+.mint-wrap, .transact-wrap{
   margin: 2rem 0;
 }
 
+.buy-sell-wrap{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0.2rem;
+}
+
+.buy{
+  background-color: var(--buy-color);
+  border: var(--buy-color) 2px solid;
+}
+
+.buy:hover{
+  background-color: var(--buy-hover);
+  border: var(--buy-hover) 2px solid;
+}
+
+.sell{
+  background-color: var(--sell-color);
+  border: var(--sell-color) 2px solid;
+}
+
+.sell:hover{
+  background-color: var(--sell-hover);
+  border: var(--sell-hovers) 2px solid;
+}
 #mint{
   display: grid;
   grid-gap: 0.5rem;
