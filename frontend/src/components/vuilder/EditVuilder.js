@@ -5,7 +5,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { useState } from 'react';
-
+import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa';
 const EditVuilder = () => {
     const [blog, setBlog] = useState("")
 
@@ -37,21 +37,34 @@ const EditVuilder = () => {
                         <div className="header-input-wrap">
                             <input name="header-input" type="text" className="header-input" placeholder="Enter Header Text"/>
                         </div>
+                        <div className="editor-wrap">
+                            <div className="text-editor">
+                                <CKEditor
+                                    editor={ ClassicEditor }
+                                    data=""
+                                    onChange = {handleOnChange}
+                                />
+                                <input type="text" value={blog} hidden/>
+                            </div>
+                        </div>
+                        <div className="social-edit-main">
+                            <div className="social-edit-wrap">
+                                <div className="social-wrap">
+                                    <div className="social-icon"><FaGithubSquare /></div>
+                                    <div className="social-input-wrap"><input name="social-input" className="social-input" type="text"  placeholder="Enter Github"/></div>
+                                </div>
+                            </div>
+                            <div className="social-edit-wrap">
+                                <div className="social-wrap">
+                                    <div className="social-icon"><FaTwitterSquare /></div>
+                                    <div className="social-input-wrap"><input name="social-input" className="social-input" type="text"  placeholder="Enter Twitter"/></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="edit-input-wrap">
+                            <input className="edit-submit sec-btn" value="Save Changes" type="submit" />
+                        </div>
                         
-                        <div>
-                            <CKEditor
-                                editor={ ClassicEditor }
-                                data=""
-                                onChange = {handleOnChange}
-                            />
-                            <input type="text" value={blog} hidden/>
-                        </div>
-                        <div>
-                            <input type="url" placeholder="Github"/>
-                        </div>
-                        <div>
-                            <input type="submit" />
-                        </div>
                     </div>
                     
                 </form>

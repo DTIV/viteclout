@@ -45,6 +45,20 @@ a{
   transition: all 0.5s;
 }
 
+.sec-btn{
+  border: var(--vite-blue) solid 2px;
+  background: var(--vite-blue);
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.sec-btn:hover{
+  background-color:inherit;
+  color: var(--vite-blue);
+  transition: all 0.5s;
+}
+
 #showcase, #profile, #explore, #edit-vuilders{
   margin-top: 9vh;
 }
@@ -450,14 +464,68 @@ td.sell{
   margin: 2rem 0;
 }
 
-.header-input-wrap{
+.header-input-wrap, .edit-input-wrap, .social-edit-wrap{
   text-align: center;
 }
-.header-input{
+
+.social-edit-wrap{
+  display: flex;
+  justify-content: center;
+}
+.social-icon{
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  font-size: 2rem;
+}
+.header-input, .edit-submit{
   padding: 0.5rem;
   text-align: center;
   width: 60%;
 }
+
+.edit-submit{
+  margin: 2rem 0;
+  cursor: pointer;
+}
+.social-input{
+  width: 100%;
+}
+.text-editor{
+  width: 60%;
+}
+
+.editor-wrap{
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-edit-main{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1rem;
+
+}
+.social-wrap{
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  align-items: center;
+  width: 60%;
+}
+
+.social-input{
+  padding: 0.5rem;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
 /* FOOTER */
 
 .copyright{
