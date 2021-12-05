@@ -9,9 +9,9 @@ const Search = () => {
  
     return (
         <div id="search">
+            <div className="top-header banner">Explore</div>
             <form action="" id="search-form" onSubmit={e => {
                 e.preventDefault()
-                console.log(vuilder)
                 if(vuilder){
                     setResult(vuilder)
                 }

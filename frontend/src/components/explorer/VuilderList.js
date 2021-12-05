@@ -9,8 +9,10 @@ const VuilderList = () => {
     const [isMinted, setIsMinted] = useState("all")
     return (
         <div id="vuilder-list">
+            <div className="l-txt results-header">
+                ALL VUILDERS
+            </div>
             <div className="vuilder-filter">
-                <div className="results-header">Filter</div>
                 <div className="line"></div>
                 <form action="" className="filter-form">
                     <div className="price-sec">
@@ -25,13 +27,11 @@ const VuilderList = () => {
                         </select>
                     </div>
                 </form>
-                
+                <div className="line"></div>
             </div>
-            <div className="line"></div>
+            
             <div>
-                <div>
-                    ALL VUILDERS
-                </div>
+                
                 <div className="vft-section">
                     {vuilders.filter((vuilder) => (vuilder.current_price > minPrice)
                         && (vuilder.current_price < maxPrice)
@@ -44,10 +44,21 @@ const VuilderList = () => {
                             <div className="vuilder-box">
                                 <Link to={`/vuilder/${vuilder._id}`} className="vuilder-link">
                                     <div className="inner-wrap">
-                                        <img className="filter-img" src={vuilder.image} alt="" />
+                                        <div className="filter-img-wrap">
+                                            <img className="filter-img" src={vuilder.image} alt="" />
+                                        </div>
                                         <div className="box-header">
-                                            <div className="m-txt">{vuilder.name}</div>
-                                            <div className="box-price">{vuilder.current_price} <small>VITE</small></div>
+                                            <div className="name-price">
+                                                <div className="m-txt"><strong>{vuilder.name}</strong></div>
+                                                <div className="box-price">{vuilder.current_price} <small>VITE</small></div>
+                                            </div>
+                                            <div className="line-light"></div>
+                                            <div className="box-stats">
+                                                <div>VLT Sold:</div>
+                                                <div>{vuilder.sold}</div>
+                                                <div>VLT Remaining:</div> 
+                                                <div>{vuilder.vft_reserve}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>

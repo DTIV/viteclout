@@ -51,6 +51,7 @@ a{
   color: white;
   padding: 0.5rem;
   text-align: center;
+  margin: 1rem 0;
 }
 
 .sec-btn:hover{
@@ -73,6 +74,7 @@ a{
 
 .l-txt{
   font-size: var(--lrg-font);
+  margin: 1rem 0;
 }
 
 .m-txt{
@@ -83,6 +85,19 @@ a{
   font-size: var(--sm-font);
 }
 
+.top-header{
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.banner{
+  padding: 2rem 0;
+  background-color: var(--vite-blue);
+  color: white;
+  margin: 2rem 0;
+}
 
 
 /* HEADER */
@@ -273,6 +288,11 @@ nav{
   background-color: var(--vite-blue);
 }
 
+.line-light{
+  height: 4px;
+  background-color: var(--vite-light-blue);
+}
+
 .blog-head, .blog-body{
   margin: 2rem 0;
 }
@@ -313,9 +333,7 @@ nav{
   align-items: center;
   width: 100px;
   background-color: var(--vite-blue);
-  border-left: var(--vite-blue) 2px solid;
-  border-right: var(--vite-blue) 2px solid;
-  border-top: var(--vite-blue) 2px solid;
+  border: var(--vite-blue) 2px solid;
   transition: all 0.5s;
 }
 
@@ -480,6 +498,7 @@ td.sell{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
+  margin: 1rem 0;
 }
 
 .vuilder-box{
@@ -488,18 +507,29 @@ td.sell{
   border-radius: 5px;
 }
 
+
+.filter-img-wrap{
+  display: flex;
+  width: 100px;
+  align-items: center;
+}
+
 .filter-img{
-  max-width: 100px;
   border: black solid 1px;
+  width: 100%;
 }
 .inner-wrap{
   display: grid;
-  grid-template-columns: 0.4fr 1fr;
+  grid-template-columns: 0.3fr 1fr;
+  grid-gap: 1rem;
 }
 
-.box-header{
+.name-price, .box-stats{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
+  grid-gap: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .box-price{
