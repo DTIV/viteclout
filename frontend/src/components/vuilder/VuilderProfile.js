@@ -9,6 +9,8 @@ import { createCurve } from '../../functions';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+
 const VuilderProfile = (props) => {
     const location = useLocation();
     const vuilder_ID = location.pathname.replace("/vuilder/", "")
@@ -72,29 +74,29 @@ const VuilderProfile = (props) => {
                         <div className="m-txt">
                             <strong>Current Price</strong>
                         </div>
-                        <div className="s-txt">{current_price}</div>
+                        <div className="s-txt">{vuilder.current_price}</div>
                     </div>
                     <div>
                         <div className="m-txt">
                             <strong>VFT Sold</strong>
                         </div>
-                        <div className="s-txt">{current_sold}</div>
+                        <div className="s-txt">{vuilder.sold}</div>
                     </div>
                     <div>
                         <div className="m-txt">
                             <strong>VFT Remaining</strong>
                         </div>
-                        <div className="s-txt">{reserve}</div>
+                        <div className="s-txt">{vuilder.vft_reserve}</div>
                     </div>
                     <div>
                         <div className="m-txt">
                             <strong>Minted</strong>
                         </div>
-                        <div className="s-txt">{minted}</div>
+                        <div className="s-txt">{vuilder.mint_date}</div>
                     </div>
                 </div>
                 <div className="bonding-curve">
-                    <BondCurve current_price={current_price} data={data}/>
+                    <BondCurve current_price={vuilder.current_price} data={data}/>
                 </div>
                 <div className="stats-tweets">
                     <div id="stats">

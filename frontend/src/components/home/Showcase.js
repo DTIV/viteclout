@@ -27,7 +27,7 @@ const Showcase = () => {
             <div className="show-content l-border">
                 <div>
                     <div className="vuilders-showcase">
-                        {vuilders.map(vuilder => (
+                        {vuilders.slice(0, 3).map(vuilder => (
                             <div key={vuilder._id}>
                                 <VuilderCard vuilder={vuilder}/>
                             </div>

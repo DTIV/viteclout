@@ -5,8 +5,11 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa';
-const EditVuilder = () => {
+const EditVuilder = (props) => {
+    const location = useLocation();
+    const path = location.pathname.replace("/edit","")
     const [blog, setBlog] = useState("")
 
     const handleOnChange = (e, editor) => {
@@ -14,14 +17,23 @@ const EditVuilder = () => {
         console.log(data)
         setBlog(data)
     }
+
+    // Submitted blog post will need to be html parsed before being placed on page
     var txt = ReactHtmlParser(blog)
-    console.log(txt)
+
     return (
         <div id="edit-vuilders" className="l-border">
             <div className="l-txt edit-header">
                 Edit Profile
             </div>
             <div className="line sm-ta"></div>
+            <div className="sm-ta">
+                <Link to={path}>
+                    <div className="sec-btn sb-ta">
+                        Back
+                    </div>
+                </Link>
+            </div>
             <div>
                 <form action="">
                     <div>

@@ -82,6 +82,9 @@ a{
 .s-txt{
   font-size: var(--sm-font);
 }
+
+
+
 /* HEADER */
 nav{
   padding: 1rem 2rem;
@@ -142,9 +145,14 @@ nav{
   color: var(--vite-blue);
 }
 
+
 .sm-ta{
   width: 80%;
   margin: auto;
+}
+
+.sb-ta{
+  width: 5rem;
 }
 /* HEADER END */
 
@@ -354,14 +362,10 @@ nav{
   margin-top: 1rem;
 }
 
-/* .profile-bottom{
-  height:  55vh;
-} */
 
 .bonding-curve{
   height: 50vh;
   margin-bottom: 3rem;
-  /* border: black solid 1px; */
 }
 
 .chart-label{
@@ -388,6 +392,10 @@ nav{
 
 #search{
   margin-top: 7rem;
+}
+
+#search-form{
+  margin-bottom: 1rem;
 }
 .form-wrapp{
   display: grid;
@@ -447,10 +455,65 @@ td.sell{
   background-color: var(--table-sell);
 }
 
+.price-sec{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.filter-input{
+  padding: 0.5rem;
+}
+
+.mint-filter{
+  width: 100%;
+}
+
+.filter-form{
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+  grid-gap: 1rem;
+  margin: 1rem 0;
+}
+
+.vft-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.vuilder-box{
+  border: black solid 1px;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.filter-img{
+  max-width: 100px;
+  border: black solid 1px;
+}
+.inner-wrap{
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+.box-header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.box-price{
+  text-align: right;
+}
+/* EXPLORE END */
+
+
+
 /* EDIT  */
 
 .edit-header{
   text-align: center;
+  margin: 1rem;
 }
 .file-wrap{
   text-align: center;

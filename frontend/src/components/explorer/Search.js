@@ -9,7 +9,7 @@ const Search = () => {
  
     return (
         <div id="search">
-            <form action="" onSubmit={e => {
+            <form action="" id="search-form" onSubmit={e => {
                 e.preventDefault()
                 console.log(vuilder)
                 if(vuilder){
