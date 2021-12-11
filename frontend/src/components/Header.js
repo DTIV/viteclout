@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import profile from '../components/empty-profile.png'
+
+// AUTHENTICATION
+const fan_id = "1"
+
 const Header = () => {
     return (
         <header>
@@ -11,11 +15,11 @@ const Header = () => {
                         <Link to="/explore">Explore</Link>
                     </div>
                     <div className="nav-btn-wrap">
-                        <a className="nav-btn" href="#">Login</a>
+                        <Link className="nav-btn" to="/login">Login</Link>
                         <a className="nav-btn vc-nav-btn" href="#">ViteConnect</a>
-                        <a href="#">
+                        <Link to={`/profile/${fan_id}`}>
                             <img className="nav-profile" src={profile} alt="" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </nav>

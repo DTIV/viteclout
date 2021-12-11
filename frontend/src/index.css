@@ -74,7 +74,7 @@ a{
   transition: all 0.5s;
 }
 
-#showcase, #profile, #explore, #edit-vuilders{
+.route-wrap{
   margin-top: 9vh;
 }
 
@@ -360,7 +360,9 @@ nav{
   width: 80%;
 }
 
-
+.profile-bottom{
+  margin-top: 2rem;
+}
 .mint-wrap, .transact-wrap{
   margin: 2rem 0;
 }
@@ -371,22 +373,22 @@ nav{
   grid-gap: 0.2rem;
 }
 
-.buy{
+.buy-btn{
   background-color: var(--buy-color);
   border: var(--buy-color) 2px solid;
 }
 
-.buy:hover{
+.buy-btn:hover{
   background-color: var(--buy-hover);
   border: var(--buy-hover) 2px solid;
 }
 
-.sell{
+.sell-btn{
   background-color: var(--sell-color);
   border: var(--sell-color) 2px solid;
 }
 
-.sell:hover{
+.sell-btn:hover{
   background-color: var(--sell-hover);
   border: var(--sell-hovers) 2px solid;
 }

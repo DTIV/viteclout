@@ -9,7 +9,11 @@ import { createCurve } from '../../functions';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Transact from './Transact';
 
+
+// AUTHENTICATION
+const user = "vuilder"
 
 const VuilderProfile = (props) => {
     const location = useLocation();
@@ -32,29 +36,7 @@ const VuilderProfile = (props) => {
                     <div className="profile-card">
                         <img className="profile-pic" src={vuilder.image} alt="" />
                     </div>
-                    <div className="mint-wrap">
-                        Vuilder View
-                        <form id="mint" action="">
-                            <div>
-                                <input id="mint-val" type="text" value="1000" disabled/>
-                            </div>
-                            <div>
-                                <input id="mint-sub" type="submit" value="Mint"/>
-                            </div>
-                        </form>
-                    </div>
-                    <div className="mint-wrap">
-                        Fan View
-                        <form id="mint" action="">
-                            <div>
-                                <input id="mint-val" type="text"/>
-                            </div>
-                            <div className="buy-sell-wrap">
-                                <input className="transact-btn buy" type="submit" value="Buy"/>
-                                <input className="transact-btn sell" type="submit" value="Sell"/>
-                            </div>
-                        </form>
-                    </div>
+                    <Transact user={user}/>
                 </div>
                 <div className="profile-blog">
                     <div>
