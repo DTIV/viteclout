@@ -16,7 +16,7 @@ const Header = () => {
                     </div>
                     <div className="nav-btn-wrap">
                         <Link className="nav-btn" to="/login">Login</Link>
-                        <a className="nav-btn vc-nav-btn" href="#">ViteConnect</a>
+                        <Link className="nav-btn vc-nav-btn" to="/auth/viteconnect">ViteConnect</Link>
                         <Link to={`/profile/${fan_id}`}>
                             <img className="nav-profile" src={profile} alt="" />
                         </Link>

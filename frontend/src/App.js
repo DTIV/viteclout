@@ -13,9 +13,7 @@ import Login from './components/auth/Login'
 import FanProfile from './components/fan/FanProfile'
 import FanEdit from "./components/fan/FanEdit";
 import ViteConnect from "./components/auth/ViteConnect";
-
-const BRIDGE = 'vite-connect-bridge ws http://localhost:3000'
-
+import AdminPanel from "./components/auth/AdminPanel";
 const logged_in_as = 'vuilder'
 const user_id = "1"
 
@@ -27,6 +25,8 @@ function App() {
           <div className="route-wrap">
             <Routes>
               <Route exact path="/" element={<Showcase />} />
+              <Route exact path="/admin" element={<AdminPanel />} />
+              <Route exact path="/login" element={<Login/>} />
               <Route exact path="/auth/viteconnect" element={<ViteConnect />} />
               <Route exact path="/vuilder/:id" element={<VuilderProfile />} />
               <Route exact path="/explore" element={<Explore />} />

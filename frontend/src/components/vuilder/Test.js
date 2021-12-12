@@ -2,59 +2,50 @@ import React from 'react'
 import VuilderTweets from './VuilderTweets'
 import BondCurve from './BondCurve';
 import Stats from './Stats';
-import axios from 'axios'
-import ProfilePic from './ProfilePic';
-import Transact from './Transact';
-import { useState, useEffect } from 'react';
 import { FaGithubSquare } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom'
 import { createCurve } from '../../functions';
 import { Link } from 'react-router-dom';
+import Transact from './Transact';
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
-const VuilderProfile = (props) => {
-    // GET VUILDER ID
+const user = "vuilder"
+
+const Test = () => {
+    const [vuilders, setVuilders] = useState([]);
     const location = useLocation();
     const vuilder_ID = location.pathname.replace("/vuilder/", "")
-    const [vuilder, setVuilder] = useState({})
-
-    // GET USER DATA FROM VITECLOUT-SERVER
-    useEffect(() => {
-        const getVuilder = async () => {
-            const res = await axios.get("/user/"+vuilder_ID);
-            setVuilder(res.data)
-        }
-        getVuilder()
-    },[vuilder_ID])
-
-    // DATA FROM SMART CONTRACT
     var reserve = 1000;
     var current_price = 0.003;
     var current_sold = 0
     const minted = "Not Minted Yet"
-
-    // CREATE CURVE DATA
     var data = []
     createCurve(data,current_price,reserve)
     
-    let created; 
-    if(vuilder.createdAt){
-        created = vuilder.createdAt.split("T")[0]
-    }
-        
+    useEffect(()=>{
+        const getVuilders = async () => {
+           const res = await axios.get("user/61b52b0a6e24a8274bf03a13")
+            // var vuilders = res.data.filter(obj => obj.isVuilder === true)
+            console.log(res.data)
+            setVuilders(res)
+        }
+        getVuilders()
+    },[])
     return (
         <div id="profile" className="l-border">
             <div className="profile-wrap">
                 <div className="main-profile">
-                    <img src="" alt="" />
-                    <ProfilePic profilePic={vuilder.profilePic}/>
-                    {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
-                    <Transact user={vuilder.isVuilder}/>
+                    <div className="profile-card">
+                        <img className="profile-pic" src="{vuilder.image}" alt="" />
+                    </div>
+                    <Transact user={user}/>
                 </div>
                 <div className="profile-blog">
                     <div>
                         <div className="blog-wrap">
                             <div className="blog-top">
-                                <div className="l-txt">{vuilder.twitterId}</div>
+                                <div className="l-txt">NAME</div>
                                 <div className="edit-wrap">
                                     <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
                                         <div >
@@ -65,9 +56,8 @@ const VuilderProfile = (props) => {
                             </div>
                             <div className="line"></div>
                         </div>
-                        <div className="blog-head"><strong>{vuilder.header}</strong></div>
-                        <div><small>Vuider since: {created}</small></div>
-                        <div className="blog-body">{vuilder.blog}</div>
+                        <div className="blog-head">HEADER</div>
+                        <div className="blog-body">BLOG</div>
                         <div className="line"></div>
                         <div id="vuilder-socials">
                             <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
@@ -121,4 +111,4 @@ const VuilderProfile = (props) => {
     )
 }
 
-export default VuilderProfile
+export default Test

@@ -9,3 +9,4 @@ export function createCurve(data, current_price, reserve){
         data.push(point)
     }
 }
+
