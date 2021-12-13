@@ -5,6 +5,7 @@ import Stats from './Stats';
 import axios from 'axios'
 import ProfilePic from './ProfilePic';
 import Transact from './Transact';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { useState, useEffect } from 'react';
 import { FaGithubSquare } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom'
@@ -40,7 +41,7 @@ const VuilderProfile = (props) => {
     if(vuilder.createdAt){
         created = vuilder.createdAt.split("T")[0]
     }
-        
+    var txt = ReactHtmlParser(vuilder.blog)
     return (
         <div id="profile" className="l-border">
             <div className="profile-wrap">
@@ -67,7 +68,7 @@ const VuilderProfile = (props) => {
                         </div>
                         <div className="blog-head"><strong>{vuilder.header}</strong></div>
                         <div><small>Vuider since: {created}</small></div>
-                        <div className="blog-body">{vuilder.blog}</div>
+                        <div className="blog-body">{txt}</div>
                         <div className="line"></div>
                         <div id="vuilder-socials">
                             <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
