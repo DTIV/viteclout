@@ -6,8 +6,12 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaGithubSquare } from 'react-icons/fa';
+import ProfilePic from './ProfilePic'
+
 import axios from 'axios'
 
+
+// ADD AUTHENTICATION SO ONLY USER CAN EDIT OWN PROFILE
 
 
 const EditVuilder = (props) => {
@@ -34,26 +38,32 @@ const EditVuilder = (props) => {
             github: github
         };
         if(file){
-            const data = FormData();
+            const data = new FormData();
             const filename = Date.now()+ file.name;
             data.append("name", filename)
             data.append("file", file)
-            updateProfile.photo = filename;
+            updateProfile.profilePic = filename;
             try{
-                axios.post("/upload", data)
+                const res = await axios.post("/upload", data)
+                console.log(res)
             }catch(err){
                 console.log(err)
             }
         }
         try{
             const res = await axios.put("/user/update/"+vuilder_id, updateProfile)
-            console.log(res)
+            // window.location.replace('/vuilder/'+vuilder_id)
         }catch (err) {
             console.log(err)
         }
-        
-    }
 
+    }
+    var newfile;
+    if(file){
+        newfile = URL.createObjectURL(file);
+    }else{
+        newfile = undefined;
+    }
     return (
         <div id="edit-vuilders" className="l-border">
             <div className="l-txt edit-header">
@@ -71,11 +81,9 @@ const EditVuilder = (props) => {
                 <form action="" onSubmit={handleSubmit}>
                     <div>
                         <div className="edit-pic-wrap">
-                            <div>
-                                <img src={profile} alt="" />
-                            </div>
+                            <ProfilePic profilePic={newfile} edit={true}/>
                             <div className="file-wrap">
-                                <input name="files" type="file" classButton="file-input"/>
+                                <input name="files" type="file" classButton="file-input" onChange={(e) => setFile(e.target.files[0])}/>
                             </div>
                         </div>
                         
@@ -89,7 +97,7 @@ const EditVuilder = (props) => {
                                     data=""
                                     onChange = {handleOnChange}
                                 />
-                                <input type="text" value={blog}/>
+                                <input type="text" value={blog} hidden/>
                             </div>
                         </div>
                         <div className="social-edit-main">

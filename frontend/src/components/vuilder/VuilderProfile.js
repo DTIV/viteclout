@@ -42,12 +42,15 @@ const VuilderProfile = (props) => {
         created = vuilder.createdAt.split("T")[0]
     }
     var txt = ReactHtmlParser(vuilder.blog)
+
+    const PF = "http://localhost:5000/images/"
+    console.log(vuilder.profilePic)
     return (
         <div id="profile" className="l-border">
             <div className="profile-wrap">
                 <div className="main-profile">
                     <img src="" alt="" />
-                    <ProfilePic profilePic={vuilder.profilePic}/>
+                    <ProfilePic profilePic={PF+vuilder.profilePic}/>
                     {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
                     <Transact user={vuilder.isVuilder}/>
                 </div>
