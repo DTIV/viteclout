@@ -4,6 +4,13 @@ import { useState } from 'react'
 
 var QRCode = require('qrcode.react');
 
+const socket = new WebSocket('ws://0.0.0.0:5001')
+
+var connected = false;
+socket.addEventListener('open', function (event){
+    console.log("CONNECTED TO WS")
+    connected = true;
+})
 /* 
 vbInstance.uri can be turn to an QR code image.
 then scan the QR code image with Vite App.
@@ -42,10 +49,8 @@ the field `data`, can be generate:
 const ViteConnect = () => {
     const [uri, setURI] = useState(0);
     
-    // WEBSOCKET CONNECTION URL
-    const BRIDGE = 'vite-connect-bridge ws server url'
-
-    /*
+    // WEBSOCKET CONNECTION TO VITECONNECT SERVER
+    const BRIDGE = 'ws://0.0.0.0:5001'
 
     const vbInstance = new Connector({ bridge: BRIDGE })
 
@@ -53,7 +58,6 @@ const ViteConnect = () => {
         console.log('connect uri', vbInstance.uri)
     });
 
-    
     vbInstance.on('connect', (err, payload) => {
         const { accounts } = payload.params[0];
         if (!accounts || !accounts[0]) throw new Error('address is null');
@@ -63,32 +67,52 @@ const ViteConnect = () => {
     })
 
     // send tx
-    vbInstance.sendCustomRequest({
-        method: 'vite_signAndSendTx',
-        params: {
-            block: {
-                accountAddress: "vite_61404d3b6361f979208c8a5c442ceb87c1f072446f58118f68",
-                amount: "2000000000000000000",
-                data: "c2FkZmFzZg==",
-                toAddress: "vite_61404d3b6361f979208c8a5c442ceb87c1f072446f58118f68",
-                tokenId: "tti_5649544520544f4b454e6e40",
-            },
-        }
-    }).then(signedBlock => console.log(signedBlock), err => console.error(err))
+    // vbInstance.sendCustomRequest({
+    //     method: 'vite_signAndSendTx',
+    //     params: {
+    //         block: {
+    //             accountAddress: "vite_61404d3b6361f979208c8a5c442ceb87c1f072446f58118f68",
+    //             amount: "2000000000000000000",
+    //             data: "c2FkZmFzZg==",
+    //             toAddress: "vite_61404d3b6361f979208c8a5c442ceb87c1f072446f58118f68",
+    //             tokenId: "tti_5649544520544f4b454e6e40",
+    //         },
+    //     }
+    // }).then(signedBlock => console.log(signedBlock), err => console.error(err))
 
     vbInstance.on('disconnect', err => {
         console.log(err)
     }) 
-
-    */
-
-    return (
-        <div id="viteconnect">
-            ViteConnect
-            {/* URI LINK TO QR CODE */}
-            <QRCode value="http://facebook.github.io/react/" />
-        </div>
-    )
+    if(connected){
+        return (
+            <div id="viteconnect">
+                <div className='viteconnect-wrap'>
+                    <div className='l-txt'>
+                        ViteConnect
+                    </div>
+                    <div>
+                        {/* URI LINK TO QR CODE */}
+                        <QRCode value={vbInstance.uri} />
+                    </div>
+                </div>
+            </div>
+        )
+    }else{
+        return (
+            <div id="viteconnect">
+                <div className='viteconnect-wrap'>
+                    <div className='l-txt'>
+                        ViteConnect
+                    </div>
+                    <div>Not Connected to Server!</div>
+                    <div>
+                        <QRCode value="http://facebook.github.io/react/" />
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    
 }
 
 export default ViteConnect

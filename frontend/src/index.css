@@ -706,9 +706,14 @@ td.sell{
   text-align: center;
 }
 
+/* VITECONNECT WRAP */
 
 
-
+.viteconnect-wrap{
+  text-align: center;
+  margin: 3rem 0;
+  padding: 3rem 0;
+}
 
 
 
