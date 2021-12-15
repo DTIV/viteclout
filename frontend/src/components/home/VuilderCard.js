@@ -4,6 +4,7 @@ import profile from '../empty-profile.png'
 
 
 const VuilderCard = (props) => {
+
     if(props.vuilder.profilePic){
         const PF = "http://localhost:5000/images/"
         return (

@@ -3,14 +3,8 @@ import Connector from '@vite/connector'
 import { useState } from 'react'
 
 var QRCode = require('qrcode.react');
+// TODO call viteconnect server and set connected with server health
 
-const socket = new WebSocket('ws://0.0.0.0:5001')
-
-var connected = false;
-socket.addEventListener('open', function (event){
-    console.log("CONNECTED TO WS")
-    connected = true;
-})
 /* 
 vbInstance.uri can be turn to an QR code image.
 then scan the QR code image with Vite App.
@@ -51,20 +45,18 @@ const ViteConnect = () => {
     
     // WEBSOCKET CONNECTION TO VITECONNECT SERVER
     const BRIDGE = 'ws://0.0.0.0:5001'
+    var vbInstance = false
+    // const vbInstance = new Connector({ bridge: BRIDGE })
+    // vbInstance.createSession().then(() => {
+    //     setURI(vbInstance.uri)
+    // });
 
-    const vbInstance = new Connector({ bridge: BRIDGE })
+    // vbInstance.on('connect', (err, payload) => {
+    //     const { accounts } = payload.params[0];
+    //     if (!accounts || !accounts[0]) throw new Error('address is null');
 
-    vbInstance.createSession().then(() => {
-        console.log('connect uri', vbInstance.uri)
-    });
-
-    vbInstance.on('connect', (err, payload) => {
-        const { accounts } = payload.params[0];
-        if (!accounts || !accounts[0]) throw new Error('address is null');
-
-        const address = accounts[0];
-        console.log(address)
-    })
+    //     const address = accounts[0];
+    // })
 
     // send tx
     // vbInstance.sendCustomRequest({
@@ -80,10 +72,11 @@ const ViteConnect = () => {
     //     }
     // }).then(signedBlock => console.log(signedBlock), err => console.error(err))
 
-    vbInstance.on('disconnect', err => {
-        console.log(err)
-    }) 
-    if(connected){
+    // vbInstance.on('disconnect', err => {
+    //     console.log(err)
+    // }) 
+
+    if(vbInstance){
         return (
             <div id="viteconnect">
                 <div className='viteconnect-wrap'>
@@ -92,7 +85,7 @@ const ViteConnect = () => {
                     </div>
                     <div>
                         {/* URI LINK TO QR CODE */}
-                        <QRCode value={vbInstance.uri} />
+                        <QRCode value={uri} />
                     </div>
                 </div>
             </div>

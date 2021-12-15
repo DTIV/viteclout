@@ -3,9 +3,10 @@ import emptyProfile from '../empty-profile.png'
 
 const FilterPic = (props) => {
     if(props.filterpic){
+        const PF = "http://localhost:5000/images/"
         return (
             <div className="filter-img-wrap">
-                <img className="filter-img" src={props.filterpic} alt="" />
+                <img className="filter-img" src={PF+props.filterpic} alt="" />
             </div>
         )
     }else{

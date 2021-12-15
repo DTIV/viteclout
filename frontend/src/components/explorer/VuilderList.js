@@ -20,7 +20,7 @@ const VuilderList = () => {
         }
         getVuilder()
     },[])
-
+    //  VUILDER NEEDS TO BE SORTED TO INCULED ONLY VULDERS
     // ADD TOKEN CONTRACT VALUES
     if(vuilder.length > 0){
         return (
@@ -53,7 +53,7 @@ const VuilderList = () => {
                         .filter((vuilder) => (vuilder.current_price > minPrice)
                         && (vuilder.current_price < maxPrice)
                         && ( isMinted == "all" | (isMinted == vuilder.minted))) */}
-                        {vuilder.map(vuilder => (
+                        {vuilder.filter((vuilder) => vuilder.isVuilder).map(vuilder => (
                             <div key={vuilder._id}>
                                 <div className="vuilder-box">
                                     <Link to={`/vuilder/${vuilder._id}`} className="vuilder-link">

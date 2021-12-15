@@ -9,21 +9,6 @@ import axios from 'axios'
 
 require('dotenv').config()
 
-console.log(process.env.REACT_APP_KEY)
-var Twit = require('twit')
-var T = new Twit({
-    consumer_key: '2PFpsPzlSfDFxKTjFgXkjhfLC', //process.env.REACT_APP_KEY,
-    consumer_secret: '8VEzAWHzbSMMc4u8B2BkJ5R9syocFQEfuwnQzhjLYxYAf3lkxK',//process.env.REACT_APP_SECRET,
-    access_token: '1323472757988970502-csux73LVh73WIjOcQSLWs5CQF7UDQ5',//process.env.REACT_APP_ACCESS_TOKEN,
-    access_token_secret:  'BFN1h1B9vvniWlTMtjRNwgpHfUnveMtpEBZFOlmUEjbxu',//process.env.REACT_APP_ACCESS_SECRET,
-    timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
-    strictSSL:            true,     // optional - requires SSL certificates to be valid.
-  })
-
-T.get('search/tweets', { q: 'banana since:2011-07-11', count: 100}, function(err, data, response) {
-    console.log(data)
-})
-
 const Showcase = () => {
     const [vuilders, setVuilders] = useState([]);
 
