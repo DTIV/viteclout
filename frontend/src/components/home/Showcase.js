@@ -1,7 +1,6 @@
 import React from 'react'
 import VuilderCard from './VuilderCard'
 import { tweets } from '../database/tweets'
-// import { vuilders } from '../database/vuilders'
 import { promoData } from '../database/promo-data'
 import { useEffect, useState } from 'react'
 import Tweet from './Tweet'
@@ -42,12 +41,13 @@ const Showcase = () => {
                         </div>
                     </div>
                 </section>
-                <div className="show-headers">
+                {/* <div className="show-headers">
                     <div className="vs-header">Vuilder's Showcase</div>
                     <div className="vs-header">Top Tweets</div>
-                </div>
+                </div> */}
                 <div className="show-content l-border">
-                    <div>
+                    <div className='main-left-section'>
+                        <div className="vs-header">Vuilder's Showcase</div>
                         <div className="vuilders-showcase">
                             {vuilders.map(vuilder => (
                                 <div key={vuilder._id}>
@@ -56,7 +56,8 @@ const Showcase = () => {
                             ))}
                         </div>
                     </div>
-                    <div>
+                    <div className='main-right-section'>
+                        <div className="vs-header">Top Tweets</div>
                         <div className="tweet-wrap">
                             {tweets.map(tweet => (
                                 <div key={tweet._id} className="tweet">

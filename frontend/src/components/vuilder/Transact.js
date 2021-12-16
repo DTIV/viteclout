@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 
-
 const Transact = (props) => {
     const [ order, setOrder ] = useState(0);
     console.log(props.user.isVuilder)
