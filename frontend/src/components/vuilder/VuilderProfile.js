@@ -64,11 +64,18 @@ const VuilderProfile = (props) => {
                             <div className="blog-top">
                                 <div className="l-txt desktop-header">{vuilder.twitterId}</div>
                                 <div className="edit-wrap">
-                                    <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
-                                        <div >
-                                            Edit
-                                        </div>
-                                    </Link>
+                                    {
+                                        context._id === vuilder_ID ? (
+                                            <div> 
+                                                <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
+                                                    <div >
+                                                        Edit
+                                                    </div>
+                                                </Link>
+                                            </div>
+                                        ) :<></>
+                                    }
+                                    
                                 </div>
                             </div>
                             <div className="line"></div>

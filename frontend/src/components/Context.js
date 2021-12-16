@@ -10,7 +10,6 @@ const Context = (props) => {
         const getUser = async () => {
             try{
                 const res = await axios.get("/getuser", { withCredentials: true })
-                console.log(res)
                 if(res.data){
                     setUser(res.data)
                 }

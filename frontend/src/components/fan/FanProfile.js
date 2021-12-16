@@ -10,9 +10,13 @@ import FanTransac from './FanTransac';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProfilePic from '../vuilder/ProfilePic';
+import { useContext } from 'react'
+import { userContext } from '../Context';
 
 const FanProfile = () => {
     const location = useLocation();
+    const context = useContext(userContext)
+    console.log(context)
     const fan_ID = location.pathname.replace("/profile/", "")
     const [fan, setFan] = useState({})
 
@@ -46,11 +50,16 @@ const FanProfile = () => {
                                 <div className="blog-top">
                                     <div className="desktop-header l-txt">{fan.twitterId}</div>
                                     <div className="edit-wrap">
-                                        <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
-                                            <div >
-                                                Edit
-                                            </div>
-                                        </Link>
+                                        {
+                                            context._id === fan_ID ? (
+                                                <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
+                                                    <div >
+                                                        Edit
+                                                    </div>
+                                                </Link>
+                                            ) : <></>
+                                        }
+                                        
                                     </div>
                                 </div>
                                 <div className="line"></div>

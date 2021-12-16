@@ -9,9 +9,6 @@ const fan_id = "1"
 
 const Header = () => {
     const context = useContext(userContext)
-    console.log("HEADER CONTEXT",context)
-
-   
     function openNav() {
         console.log("clicked")
         document.getElementById("mySidenav").style.width = "100%";
