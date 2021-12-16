@@ -3,24 +3,66 @@ import profile from '../empty-profile.png'
 import { CgProfile } from "react-icons/cg";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaGithubSquare } from 'react-icons/fa';
+import ProfilePic from '../vuilder/ProfilePic';
+import axios from 'axios'
+
 
 const FanEdit = () => {
     const location = useLocation();
-    const path = location.pathname.replace("/edit","")
+    const navigate = useNavigate();
+    const fan_id = location.pathname.replace("/edit","").replace("/profile/", "")
+
+    const [header, setHeader] = useState("")
     const [blog, setBlog] = useState("")
+    const [github, setGithub] = useState("");
+    const [file, setFile] = useState(null)
 
     const handleOnChange = (e, editor) => {
         const data = editor.getData();
-        console.log(data)
         setBlog(data)
     }
 
-    // Submitted blog post will need to be html parsed before being placed on page
-    var txt = ReactHtmlParser(blog)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const updateProfile = {
+            userId: fan_id,
+            header: header,
+            blog: blog,
+            github: github
+        };
+        if(file){
+            const data = new FormData();
+            const filename = Date.now()+ file.name;
+            data.append("name", filename)
+            data.append("file", file)
+            updateProfile.profilePic = filename;
+            try{
+                const res = await axios.post("/upload", data)
+                console.log(res)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        try{
+            const res = await axios.put("/user/update/"+fan_id, updateProfile)
+            if(res){
+                navigate(`/profile/${fan_id}`)
+            }
+        }catch (err) {
+            console.log(err)
+        }
+
+    }
+    var newfile;
+    if(file){
+        newfile = URL.createObjectURL(file);
+    }else{
+        newfile = undefined;
+    }
     return (
         <div id="edit-vuilders" className="l-border">
             <div className="l-txt edit-header">
@@ -28,26 +70,24 @@ const FanEdit = () => {
             </div>
             <div className="line sm-ta"></div>
             <div className="sm-ta">
-                <Link to={path}>
+                <Link to={`/profile/${fan_id}`}>
                     <div className="sec-btn sb-ta">
                         Back
                     </div>
                 </Link>
             </div>
             <div>
-                <form action="">
+                <form action="" onSubmit={handleSubmit}>
                     <div>
                         <div className="edit-pic-wrap">
-                            <div>
-                                <img src={profile} alt="" />
-                            </div>
+                            <ProfilePic profilePic={newfile} edit={true}/>
                             <div className="file-wrap">
-                                <input name="files" type="file" classButton="file-input"/>
+                                <input name="files" type="file" classButton="file-input" onChange={(e) => setFile(e.target.files[0])}/>
                             </div>
                         </div>
                         
                         <div className="header-input-wrap">
-                            <input name="header-input" type="text" className="header-input" placeholder="Enter Header Text"/>
+                            <input onChange={(e) => (setHeader(e.target.value))} name="header-input" type="text" className="header-input" placeholder="Enter Header Text"/>
                         </div>
                         <div className="editor-wrap">
                             <div className="text-editor">
@@ -63,13 +103,7 @@ const FanEdit = () => {
                             <div className="social-edit-wrap">
                                 <div className="social-wrap">
                                     <div className="social-icon"><FaGithubSquare /></div>
-                                    <div className="social-input-wrap"><input name="social-input" className="social-input" type="text"  placeholder="Enter Github"/></div>
-                                </div>
-                            </div>
-                            <div className="social-edit-wrap">
-                                <div className="social-wrap">
-                                    <div className="social-icon"><FaTwitterSquare /></div>
-                                    <div className="social-input-wrap"><input name="social-input" className="social-input" type="text"  placeholder="Enter Twitter"/></div>
+                                    <div className="social-input-wrap"><input onChange={(e) => (setGithub(e.target.value))} name="social-input" className="social-input" type="text"  placeholder="Enter Github"/></div>
                                 </div>
                             </div>
                         </div>

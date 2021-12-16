@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaGithubSquare } from 'react-icons/fa';
 import ProfilePic from './ProfilePic'
-
 import axios from 'axios'
 
 

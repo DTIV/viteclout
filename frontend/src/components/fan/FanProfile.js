@@ -5,26 +5,45 @@ import { fans } from '../database/fans';
 import { createCurve } from '../../functions';
 import { Link } from 'react-router-dom';
 import Stats from '../vuilder/Stats';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import VuilderTweets from '../vuilder/VuilderTweets';
 import FanTransac from './FanTransac';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import ProfilePic from '../vuilder/ProfilePic';
 
 const FanProfile = () => {
     const location = useLocation();
     const fan_ID = location.pathname.replace("/profile/", "")
-    const fan = fans.find((v) => v._id === fan_ID)
+    const [fan, setFan] = useState({})
+
+    // GET USER DATA FROM VITECLOUT-SERVER
+    useEffect(() => {
+        const getFan = async () => {
+            const res = await axios.get("/user/"+fan_ID);
+            setFan(res.data)
+        }
+        getFan()
+    },[fan_ID])
+
+    let created; 
+    if(fan.createdAt){
+        created = fan.createdAt.split("T")[0]
+    }
+
+    var txt = ReactHtmlParser(fan.blog)
+    const PF = "http://localhost:5000/images/"
     return (
         <div id="profile" className="l-border">
             <div className="profile-wrap">
                 <div className="main-profile">
-                    <div className="profile-card">
-                        <img className="profile-pic" src={fan.image} alt="" />
-                    </div>
+                    <ProfilePic profilePic={PF+fan.profilePic} />
                 </div>
                 <div className="profile-blog">
                     <div>
                         <div className="blog-wrap">
                             <div className="blog-top">
-                                <div className="l-txt">{fan.name}</div>
+                                <div className="l-txt">{fan.twitterId}</div>
                                 <div className="edit-wrap">
                                     <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
                                         <div >
@@ -35,8 +54,8 @@ const FanProfile = () => {
                             </div>
                             <div className="line"></div>
                         </div>
-                        <div className="blog-head">{fan.header}</div>
-                        <div className="blog-body">{fan.blog}</div>
+                        <div className="blog-head"><strong>{fan.header}</strong></div>
+                        <div className="blog-body">{txt}</div>
                         <div className="line"></div>
                         <div id="vuilder-socials">
                             <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>

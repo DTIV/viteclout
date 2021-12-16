@@ -49,7 +49,7 @@ const VuilderProfile = (props) => {
         <div id="profile" className="l-border">
             <div className="profile-wrap">
                 <div className="main-profile">
-                    <img src="" alt="" />
+                    {/* <img src="" alt="" /> */}
                     <ProfilePic profilePic={PF+vuilder.profilePic}/>
                     {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
                     <Transact user={vuilder.isVuilder}/>

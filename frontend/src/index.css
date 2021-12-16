@@ -126,12 +126,20 @@ nav{
   background-color: white;
   width: 100%;
 }
+.nav-name{
+  margin-left: 1rem;
+  background: var(--vite-blue);
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: white;
+}
 .nav-btn{
   border: black solid 1px;
   padding: 0.5rem;
   width: 7rem;
   text-align: center;
   margin-left: 1rem;
+  cursor: pointer;
 }
 
 .nav-btn:hover{
