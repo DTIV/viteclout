@@ -4,7 +4,8 @@ import { useState } from 'react'
 
 const Transact = (props) => {
     const [ order, setOrder ] = useState(0);
-    if(props.user === true){
+    console.log(props.user.isVuilder)
+    if(props.user.isVuilder === true){
         // IF USER IS A VUILDER DISPLAY MINT
         return (
             <div className="mint-wrap">

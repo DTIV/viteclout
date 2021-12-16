@@ -36,7 +36,7 @@ const Header = () => {
                                         <img className="nav-profile" src={PF + context.profilePic} alt="" />
                                     </Link>
                                 ):
-                                <Link to={`/profile/${context._id}`}>
+                                <Link to={`/profile/${context._id}`} disabled>
                                     <img className="nav-profile" src={profile} alt="" />
                                 </Link>
                             }
@@ -58,7 +58,7 @@ const Header = () => {
                         <div className="nav-btn-wrap">
                             <Link className="nav-btn" to="/login">Login</Link>
                             <Link className="nav-btn vc-nav-btn" to="/auth/viteconnect">ViteConnect</Link>
-                            <Link to={`/profile/1`}>
+                            <Link to={`/`} disabled>
                                 <img className="nav-profile" src={profile} alt="" />
                             </Link>
                         </div>

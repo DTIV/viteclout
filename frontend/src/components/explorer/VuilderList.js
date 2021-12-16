@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { vuilders } from '../database/vuilders'
+// import { vuilders } from '../database/vuilders'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import FilterPic from './FilterPic'

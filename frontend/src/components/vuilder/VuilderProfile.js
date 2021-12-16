@@ -11,10 +11,15 @@ import { FaGithubSquare } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom'
 import { createCurve } from '../../functions';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { userContext } from '../Context'
+
 
 const VuilderProfile = (props) => {
     // GET VUILDER ID
     const location = useLocation();
+    const context = useContext(userContext)
+
     const vuilder_ID = location.pathname.replace("/vuilder/", "")
     const [vuilder, setVuilder] = useState({})
 
@@ -44,7 +49,6 @@ const VuilderProfile = (props) => {
     var txt = ReactHtmlParser(vuilder.blog)
 
     const PF = "http://localhost:5000/images/"
-    console.log(vuilder.profilePic)
     return (
         <div id="profile" className="l-border">
             <div className="profile-wrap">
@@ -52,7 +56,7 @@ const VuilderProfile = (props) => {
                     {/* <img src="" alt="" /> */}
                     <ProfilePic profilePic={PF+vuilder.profilePic}/>
                     {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
-                    <Transact user={vuilder.isVuilder}/>
+                    <Transact user={context}/>
                 </div>
                 <div className="profile-blog">
                     <div>

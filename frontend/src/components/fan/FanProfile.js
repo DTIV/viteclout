@@ -1,7 +1,6 @@
 import React from 'react'
 import { FaGithubSquare } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom'
-import { fans } from '../database/fans';
 import { createCurve } from '../../functions';
 import { Link } from 'react-router-dom';
 import Stats from '../vuilder/Stats';
