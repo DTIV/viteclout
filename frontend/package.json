@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@vite/connector": "^0.0.2",
+    "@vite/vitejs": "^2.3.16",
+    "@vite/vitejs-ws": "^2.3.16",
     "axios": "^0.24.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

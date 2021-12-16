@@ -36,72 +36,130 @@ const FanProfile = () => {
 
     var txt = ReactHtmlParser(fan.blog)
     const PF = "http://localhost:5000/images/"
-    return (
-        <div id="profile" className="l-border">
-            <div className="profile-wrap">
-                <div className="main-profile">
-                    <div className="mobile-header l-txt hide">{fan.twitterId}</div>
-                    <ProfilePic profilePic={PF+fan.profilePic} />
-                </div>
-                <div className="profile-blog">
-                    <div className='fan-txt-wrap'>
-                        <div>
-                            <div className="blog-wrap">
-                                <div className="blog-top">
-                                    <div className="desktop-header l-txt">{fan.twitterId}</div>
-                                    <div className="edit-wrap">
-                                        {
-                                            context._id === fan_ID ? (
-                                                <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
-                                                    <div >
-                                                        Edit
-                                                    </div>
-                                                </Link>
-                                            ) : <></>
-                                        }
-                                        
+    if(context){
+        return (
+            <div id="profile" className="l-border">
+                <div className="profile-wrap">
+                    <div className="main-profile">
+                        <div className="mobile-header l-txt hide">{fan.twitterId}</div>
+                        <ProfilePic profilePic={PF+fan.profilePic} />
+                    </div>
+                    <div className="profile-blog">
+                        <div className='fan-txt-wrap'>
+                            <div>
+                                <div className="blog-wrap">
+                                    <div className="blog-top">
+                                        <div className="desktop-header l-txt">{fan.twitterId}</div>
+                                        <div className="edit-wrap">
+                                            {
+                                                context._id === fan_ID ? (
+                                                    <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
+                                                        <div >
+                                                            Edit
+                                                        </div>
+                                                    </Link>
+                                                ) : <></>
+                                            }
+                                            
+                                        </div>
                                     </div>
+                                    <div className="line"></div>
                                 </div>
+                                <div className="blog-head"><strong>{fan.header}</strong></div>
+                                <div className="blog-body">{txt}</div>
                                 <div className="line"></div>
+                                <div id="vuilder-socials">
+                                    <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                                </div>
                             </div>
-                            <div className="blog-head"><strong>{fan.header}</strong></div>
-                            <div className="blog-body">{txt}</div>
-                            <div className="line"></div>
-                            <div id="vuilder-socials">
-                                <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <section className="profile-bottom">
-                    <div className="top-stats">
-                        <div>
-                            <div className="m-txt">
-                                <strong>VFT Balance</strong>
-                            </div>
-                            <div className="s-txt">10</div>
-                        </div>
-                        <div>
-                            <div className="m-txt">
-                                <strong>VITE Balance</strong>
-                            </div>
-                            <div className="s-txt">500</div>
-                        </div>
-                    </div>
-                    <div className="stats-tweets">
-                        <div id="stats">
-                            <FanTransac />
-                        </div>
-                        <div id="vuilder-tweets">
-                            <VuilderTweets />
                         </div>
                     </div>
                     
-                </section>
-        </div>
-    )
+                </div>
+                <section className="profile-bottom">
+                        <div className="top-stats">
+                            <div>
+                                <div className="m-txt">
+                                    <strong>VFT Balance</strong>
+                                </div>
+                                <div className="s-txt">10</div>
+                            </div>
+                            <div>
+                                <div className="m-txt">
+                                    <strong>VITE Balance</strong>
+                                </div>
+                                <div className="s-txt">500</div>
+                            </div>
+                        </div>
+                        <div className="stats-tweets">
+                            <div id="stats">
+                                <FanTransac />
+                            </div>
+                            <div id="vuilder-tweets">
+                                <VuilderTweets />
+                            </div>
+                        </div>
+                        
+                    </section>
+            </div>
+        )
+    }else{
+        return (
+            <div id="profile" className="l-border">
+                <div className="profile-wrap">
+                    <div className="main-profile">
+                        <div className="mobile-header l-txt hide">{fan.twitterId}</div>
+                        <ProfilePic profilePic={PF+fan.profilePic} />
+                    </div>
+                    <div className="profile-blog">
+                        <div className='fan-txt-wrap'>
+                            <div>
+                                <div className="blog-wrap">
+                                    <div className="blog-top">
+                                        <div className="desktop-header l-txt">{fan.twitterId}</div>
+                                    </div>
+                                    <div className="line"></div>
+                                </div>
+                                <div className="blog-head"><strong>{fan.header}</strong></div>
+                                <div className="blog-body">{txt}</div>
+                                <div className="line"></div>
+                                <div id="vuilder-socials">
+                                    <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <section className="profile-bottom">
+                        <div className="top-stats">
+                            <div>
+                                <div className="m-txt">
+                                    <strong>VFT Balance</strong>
+                                </div>
+                                <div className="s-txt">10</div>
+                            </div>
+                            <div>
+                                <div className="m-txt">
+                                    <strong>VITE Balance</strong>
+                                </div>
+                                <div className="s-txt">500</div>
+                            </div>
+                        </div>
+                        <div className="stats-tweets">
+                            <div id="stats">
+                                <FanTransac />
+                            </div>
+                            <div id="vuilder-tweets">
+                                <VuilderTweets />
+                            </div>
+                        </div>
+                        
+                    </section>
+            </div>
+        )
+    }
+    
 }
 
 export default FanProfile

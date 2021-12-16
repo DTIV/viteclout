@@ -22,7 +22,7 @@ const VuilderProfile = (props) => {
 
     const vuilder_ID = location.pathname.replace("/vuilder/", "")
     const [vuilder, setVuilder] = useState({})
-
+    
     // GET USER DATA FROM VITECLOUT-SERVER
     useEffect(() => {
         const getVuilder = async () => {
@@ -49,91 +49,166 @@ const VuilderProfile = (props) => {
     var txt = ReactHtmlParser(vuilder.blog)
 
     const PF = "http://localhost:5000/images/"
-    return (
-        <div id="profile" className="l-border">
-            <div className="profile-wrap">
-                <div className="main-profile">
-                    <div className="mobile-header l-txt hide">{vuilder.twitterId}</div>
-                    <ProfilePic profilePic={PF+vuilder.profilePic}/>
-                    {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
-                    <Transact user={context}/>
-                </div>
-                <div className="profile-blog">
-                    <div>
-                        <div className="blog-wrap">
-                            <div className="blog-top">
-                                <div className="l-txt desktop-header">{vuilder.twitterId}</div>
-                                <div className="edit-wrap">
-                                    {
-                                        context._id === vuilder_ID ? (
-                                            <div> 
-                                                <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
-                                                    <div >
-                                                        Edit
-                                                    </div>
-                                                </Link>
-                                            </div>
-                                        ) :<></>
-                                    }
-                                    
+    if(context){
+        return (
+            <div id="profile" className="l-border">
+                <div className="profile-wrap">
+                    <div className="main-profile">
+                        <div className="mobile-header l-txt hide">{vuilder.twitterId}</div>
+                        <ProfilePic profilePic={PF+vuilder.profilePic}/>
+                        {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
+                        <Transact user={context}/>
+                    </div>
+                    <div className="profile-blog">
+                        <div>
+                            <div className="blog-wrap">
+                                <div className="blog-top">
+                                    <div className="l-txt desktop-header">{vuilder.twitterId}</div>
+                                    <div className="edit-wrap">
+                                        {
+                                            context._id === vuilder_ID ? (
+                                                <div> 
+                                                    <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
+                                                        <div >
+                                                            Edit
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                            ) :<></>
+                                        }
+                                        
+                                    </div>
                                 </div>
+                                <div className="line"></div>
                             </div>
+                            <div className="blog-head"><strong>{vuilder.header}</strong></div>
+                            <div><small>Vuider since: {created}</small></div>
+                            <div className="blog-body">{txt}</div>
                             <div className="line"></div>
-                        </div>
-                        <div className="blog-head"><strong>{vuilder.header}</strong></div>
-                        <div><small>Vuider since: {created}</small></div>
-                        <div className="blog-body">{txt}</div>
-                        <div className="line"></div>
-                        <div id="vuilder-socials">
-                            <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                            <div id="vuilder-socials">
+                                <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
+                <section className="profile-bottom">
+                    <div className="top-stats">
+                        <div>
+                            <div className="m-txt">
+                                <strong>Current Price</strong>
+                            </div>
+                            <div className="s-txt">PRICE</div>
+                        </div>
+                        <div>
+                            <div className="m-txt">
+                                <strong>VFT Sold</strong>
+                            </div>
+                            <div className="s-txt">50</div>
+                        </div>
+                        <div>
+                            <div className="m-txt">
+                                <strong>VFT Remaining</strong>
+                            </div>
+                            <div className="s-txt">1000</div>
+                        </div>
+                        <div>
+                            <div className="m-txt">
+                                <strong>Minted</strong>
+                            </div>
+                            <div className="s-txt">2021</div>
+                        </div>
+                    </div>
+                    <div className="bonding-curve">
+                        <BondCurve current_price={50} data={data}/>
+                    </div>
+                    <div className="stats-tweets">
+                        <div id="stats">
+                            <Stats />
+                        </div>
+                        <div id="vuilder-tweets">
+                            <VuilderTweets />
+                        </div>
+                    </div>
+                    
+                </section>
                 
             </div>
-            <section className="profile-bottom">
-                <div className="top-stats">
-                    <div>
-                        <div className="m-txt">
-                            <strong>Current Price</strong>
-                        </div>
-                        <div className="s-txt">PRICE</div>
+        )
+    }else{
+        return (
+            <div id="profile" className="l-border">
+                <div className="profile-wrap">
+                    <div className="main-profile">
+                        <div className="mobile-header l-txt hide">{vuilder.twitterId}</div>
+                        <ProfilePic profilePic={PF+vuilder.profilePic}/>
+                        {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
+                        <Transact user={context}/>
                     </div>
-                    <div>
-                        <div className="m-txt">
-                            <strong>VFT Sold</strong>
+                    <div className="profile-blog">
+                        <div>
+                            <div className="blog-wrap">
+                                <div className="blog-top">
+                                    <div className="l-txt desktop-header">{vuilder.twitterId}</div>
+                                </div>
+                                <div className="line"></div>
+                            </div>
+                            <div className="blog-head"><strong>{vuilder.header}</strong></div>
+                            <div><small>Vuider since: {created}</small></div>
+                            <div className="blog-body">{txt}</div>
+                            <div className="line"></div>
+                            <div id="vuilder-socials">
+                                <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                            </div>
                         </div>
-                        <div className="s-txt">50</div>
                     </div>
-                    <div>
-                        <div className="m-txt">
-                            <strong>VFT Remaining</strong>
-                        </div>
-                        <div className="s-txt">1000</div>
-                    </div>
-                    <div>
-                        <div className="m-txt">
-                            <strong>Minted</strong>
-                        </div>
-                        <div className="s-txt">2021</div>
-                    </div>
+                    
                 </div>
-                <div className="bonding-curve">
-                    <BondCurve current_price={50} data={data}/>
-                </div>
-                <div className="stats-tweets">
-                    <div id="stats">
-                        <Stats />
+                <section className="profile-bottom">
+                    <div className="top-stats">
+                        <div>
+                            <div className="m-txt">
+                                <strong>Current Price</strong>
+                            </div>
+                            <div className="s-txt">PRICE</div>
+                        </div>
+                        <div>
+                            <div className="m-txt">
+                                <strong>VFT Sold</strong>
+                            </div>
+                            <div className="s-txt">50</div>
+                        </div>
+                        <div>
+                            <div className="m-txt">
+                                <strong>VFT Remaining</strong>
+                            </div>
+                            <div className="s-txt">1000</div>
+                        </div>
+                        <div>
+                            <div className="m-txt">
+                                <strong>Minted</strong>
+                            </div>
+                            <div className="s-txt">2021</div>
+                        </div>
                     </div>
-                    <div id="vuilder-tweets">
-                        <VuilderTweets />
+                    <div className="bonding-curve">
+                        <BondCurve current_price={50} data={data}/>
                     </div>
-                </div>
+                    <div className="stats-tweets">
+                        <div id="stats">
+                            <Stats />
+                        </div>
+                        <div id="vuilder-tweets">
+                            <VuilderTweets />
+                        </div>
+                    </div>
+                    
+                </section>
                 
-            </section>
-            
-        </div>
-    )
+            </div>
+        )
+    }
+    
 }
 
 export default VuilderProfile

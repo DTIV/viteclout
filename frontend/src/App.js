@@ -14,14 +14,13 @@ import FanProfile from './components/fan/FanProfile'
 import FanEdit from "./components/fan/FanEdit";
 import ViteConnect from "./components/auth/ViteConnect";
 import AdminPanel from "./components/auth/AdminPanel";
-import { useContext } from "react";
-import { userContext } from "./components/Context";
 
-const logged_in_as = 'vuilder'
-const user_id = "1"
+require('dotenv').config()
+const { ViteAPI, wallet, utils, abi, accountBlock, keystore } = require('@vite/vitejs');
+const { WS_RPC } = require('@vite/vitejs-ws');
 
 function App() {
-  const userObject = useContext(userContext)
+
   return (
     <BrowserRouter>
       <div className="App">
