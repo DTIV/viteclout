@@ -35,6 +35,7 @@ Install all dependancies and start
 npm install
 npm run dev
 ```
+Until and admin is implemented,a dd all Vuilders to database using postman 
 
 ## 2. ViteConnect Server
 
