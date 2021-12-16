@@ -16,9 +16,6 @@ const ProfilePic = (props) => {
                 </div>
             )
         }
-    }
-    
-    
     }else{
         return (
             <div className="profile-card">
