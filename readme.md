@@ -2,6 +2,8 @@
 
 ### View components for further documentation.
 
+VIEW LIVE FRONTENT: [HERE](https://elegant-goldberg-2a9d8d.netlify.app/)
+
 This is our submission for Grants Round 12 Hackathon: Social Token Project (ViteClout)
 
 This submission will likely not be complete, but should give a very good representation of the core features and functionality for viteClout, in regards to interacting with the database, twitter authenticationand, viteConnect and vite protocol.
