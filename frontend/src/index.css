@@ -26,6 +26,11 @@
 html, body { margin: 0; padding: 0; }
 body {
   font-family: 'Raleway', sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* overflow-x: hidden;  */
 }
 
 a{
@@ -326,18 +331,27 @@ nav{
   position: absolute;
   top: 35%;
   left: 10%;
-  width: 100%;
+  color: white;
 }
 
+.main-title{
+  width: 500px;
+  font-size: 3rem;
+}
+
+.sec-title{
+  width: 500px;
+  font-size: 1.5rem;
+}
 .title{
   color: white;
   font-size: 1.5rem;
 }
 
-.p-title{
+/* .p-title{
   font-size: 2.5rem;
   margin: 1rem 0;
-}
+} */
 .promo-showcase{
   background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80');
   min-height: 45vh;
@@ -701,6 +715,7 @@ td.sell{
   display: grid;
   grid-template-columns: 0.3fr 1fr;
   grid-gap: 1rem;
+  width: 100%;
 }
 
 .name-price, .box-stats{
@@ -713,6 +728,11 @@ td.sell{
 
 .box-price{
   text-align: right;
+}
+
+.explore-img-wrap{
+  text-align: center;
+  margin: auto;
 }
 /* EXPLORE END */
 
@@ -801,7 +821,11 @@ td.sell{
 }
 
 
+/* FAN PROFILE */
 
+.fan-txt-wrap{
+ width: 100%;
+}
 
 /* FOOTER */
 
@@ -826,8 +850,20 @@ td.sell{
   .show-headers, .show-content{
     display: grid;
     grid-template-columns: 1fr;
-    align-items: center;
-    grid-gap: 1.5rem;
+  }
+
+  .vft-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats-tweets{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .tweet-wrap{
+    margin: 0;
+    width: 35rem;
+    margin: auto;
   }
 }
 
@@ -835,7 +871,11 @@ td.sell{
   .vuilders-showcase{
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 1rem;
+  }
+
+  .vft-section{
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .nav-btn,
@@ -849,4 +889,87 @@ td.sell{
     display: block;
   }
 
+  .filter-form{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .profile-wrap{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+  .profile-blog{
+    width: 100%;
+  }
+  .top-stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .table-id,
+  .table-addy{
+    word-break: break-all;
+  }
+  .table-id{
+    display: none;
+  }
+  .tweet-wrap{
+    margin: 0;
+    width: 100%;
+    margin: auto;
+  }
+  .main-title{
+    width: 400px;
+    font-size: 2.5rem;
+  }
+  
+  .sec-title{
+    width: 400px;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .inner-wrap{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .filter-img-wrap{
+    width: 300px;
+  }
+
+  .price-sec{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .desktop-header{
+    display: none;
+  }
+
+  .mobile-header{
+    display: block;
+  }
+
+  .blog-top{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  .top-stats{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  .promo-wrap{
+    width: 100vw!important;
+    font-size: 1rem!important;
+  }
 }

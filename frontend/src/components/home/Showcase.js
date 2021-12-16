@@ -32,19 +32,15 @@ const Showcase = () => {
                 <section id="promo">
                     <div className="promo-showcase">
                         <div className="promo-wrap">
-                            <div className="title p-title">
+                            <div className="main-title">
                                 {promoData[0]['title']}
                             </div>
-                            <div className="title">
+                            <div className="sec-title">
                                 {promoData[0]['description']}
                             </div>
                         </div>
                     </div>
                 </section>
-                {/* <div className="show-headers">
-                    <div className="vs-header">Vuilder's Showcase</div>
-                    <div className="vs-header">Top Tweets</div>
-                </div> */}
                 <div className="show-content l-border">
                     <div className='main-left-section'>
                         <div className="vs-header">Vuilder's Showcase</div>

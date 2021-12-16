@@ -53,7 +53,7 @@ const VuilderProfile = (props) => {
         <div id="profile" className="l-border">
             <div className="profile-wrap">
                 <div className="main-profile">
-                    {/* <img src="" alt="" /> */}
+                    <div className="mobile-header l-txt hide">{vuilder.twitterId}</div>
                     <ProfilePic profilePic={PF+vuilder.profilePic}/>
                     {/* USER NEEDS TO BE CHANGED TO CURRENT USER NOT ISVUILDER */}
                     <Transact user={context}/>
@@ -62,7 +62,7 @@ const VuilderProfile = (props) => {
                     <div>
                         <div className="blog-wrap">
                             <div className="blog-top">
-                                <div className="l-txt">{vuilder.twitterId}</div>
+                                <div className="l-txt desktop-header">{vuilder.twitterId}</div>
                                 <div className="edit-wrap">
                                     <Link to={`/vuilder/${vuilder_ID}/edit`} className="edit-btn">
                                         <div >

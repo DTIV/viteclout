@@ -36,28 +36,31 @@ const FanProfile = () => {
         <div id="profile" className="l-border">
             <div className="profile-wrap">
                 <div className="main-profile">
+                    <div className="mobile-header l-txt hide">{fan.twitterId}</div>
                     <ProfilePic profilePic={PF+fan.profilePic} />
                 </div>
                 <div className="profile-blog">
-                    <div>
-                        <div className="blog-wrap">
-                            <div className="blog-top">
-                                <div className="l-txt">{fan.twitterId}</div>
-                                <div className="edit-wrap">
-                                    <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
-                                        <div >
-                                            Edit
-                                        </div>
-                                    </Link>
+                    <div className='fan-txt-wrap'>
+                        <div>
+                            <div className="blog-wrap">
+                                <div className="blog-top">
+                                    <div className="desktop-header l-txt">{fan.twitterId}</div>
+                                    <div className="edit-wrap">
+                                        <Link to={`/profile/${fan_ID}/edit`} className="edit-btn">
+                                            <div >
+                                                Edit
+                                            </div>
+                                        </Link>
+                                    </div>
                                 </div>
+                                <div className="line"></div>
                             </div>
+                            <div className="blog-head"><strong>{fan.header}</strong></div>
+                            <div className="blog-body">{txt}</div>
                             <div className="line"></div>
-                        </div>
-                        <div className="blog-head"><strong>{fan.header}</strong></div>
-                        <div className="blog-body">{txt}</div>
-                        <div className="line"></div>
-                        <div id="vuilder-socials">
-                            <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                            <div id="vuilder-socials">
+                                <div className="git-tab"><a href="http://www.github.com" target="__blank"><FaGithubSquare /></a></div>
+                            </div>
                         </div>
                     </div>
                 </div>

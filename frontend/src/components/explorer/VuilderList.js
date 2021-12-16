@@ -58,7 +58,10 @@ const VuilderList = () => {
                                 <div className="vuilder-box">
                                     <Link to={`/vuilder/${vuilder._id}`} className="vuilder-link">
                                         <div className="inner-wrap">
-                                            <FilterPic filterpic={vuilder.profilePic}/>
+                                            <div className='explore-img-wrap'>
+                                                <FilterPic filterpic={vuilder.profilePic}/>
+                                            </div>
+                                            
                                             <div className="box-header">
                                                 <div className="name-price">
                                                     <div className="m-txt"><strong>{vuilder.twitterId}</strong></div>
